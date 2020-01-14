@@ -7,6 +7,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import Login from "./views/Login/index";
 import Jobs from "./views/Jobs/index";
+import JobDetails from "./views/JobDetails/index";
 import { theme } from "./theme"
 
 import messagesEn from "./messages/en";
@@ -27,6 +28,7 @@ const App = (
                     <BrowserRouter>
                         <Switch>
                             <Route exact path="/" component={Jobs} />
+                            <Route exact path="/:id" component={JobDetails} />
                         </Switch>
                     </BrowserRouter>
                 </Login>

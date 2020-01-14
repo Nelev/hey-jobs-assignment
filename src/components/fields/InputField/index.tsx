@@ -1,12 +1,24 @@
-import React from "react";
-import Button from "@material-ui/core/Input"
+import React, { ReactChildren } from "react";
+import TextField from "@material-ui/core/TextField"
+import { makeStyles } from "@material-ui/core/styles";
 
 interface IProps {
-    input: any
+    input: ReactChildren
 }
 
+const useStyles = makeStyles({
+    textfield: {
+        backgroundColor: "white"
+    },
+    title: {
+        fontSize: 14,
+    }
+});
+
+// wrapper for form fields
 const InputField: React.FC<IProps> = ({ input }) => {
-    return <Button {...input} color="primary" />;
+    const classes = useStyles()
+    return <TextField {...input} color="primary" className={classes.textfield} />;
 };
 
 export default InputField;

@@ -56,3 +56,15 @@ export const makeRandomColor = () => {
   }
   return color;
 };
+
+export const generateJob = id => {
+  return {
+    id: id,
+    title: "Job Title" + id,
+    description: faker.lorem.sentence(),
+    employmentType: typeList[Math.floor(Math.random() * typeList.length)],
+    company: faker.company.companyName(),
+    address: faker.address.streetAddress(),
+    salary: faker.finance.amount()
+  };
+};

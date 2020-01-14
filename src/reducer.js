@@ -9,7 +9,5 @@ export default combineReducers({
   form,
   user: userReducer,
   jobs: jobsReducer,
-  views: combineReducers({
-    routing: routerReducer
-  })
+  routing: routerReducer
 });
