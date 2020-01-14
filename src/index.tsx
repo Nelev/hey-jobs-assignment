@@ -1,12 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { IntlProvider } from "react-intl";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Root from "./views/Root/index";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import messagesEn from "./messages/en";
+import store from "./store";
+
+// TODO: get the current broswer language and load the locale one.
+// const language = navigator.language.split(/[-_]/)[0]
+const language = "en";
+const messages = { en: messagesEn };
+
+const App = (
+    <IntlProvider locale={language} messages={messages[language]}>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={Root} />
+                </Switch>
+            </BrowserRouter>
+        </Provider>
+    </IntlProvider>
+);
+
+ReactDOM.render(App, document.getElementById("root"));

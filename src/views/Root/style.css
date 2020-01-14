@@ -1,0 +1,32 @@
+.c-Login-Title {
+  text-align: center;
+  user-select: none;
+  height: 60px;
+  color: white;
+  font-size: 250%;
+  padding: 0px;
+}
+
+.c-Login-Footer {
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  font-family: "Roboto";
+  color: white;
+}
+
+.c-Login-Footer a {
+  color: white;
+}
+
+.v-Login {
+  width: 100%;
+  height: 100%;
+  background-image: url("login-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
