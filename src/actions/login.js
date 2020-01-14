@@ -22,7 +22,7 @@ export const login = values => async dispatch => {
   }
 };
 
-export const logout = () => ({
-  type: LOGOUT,
-  payload: null
-});
+// export const logout = () => ({
+//   type: LOGOUT,
+//  payload: null
+// });

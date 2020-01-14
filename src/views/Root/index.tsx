@@ -16,15 +16,14 @@ interface ILoginValues {
 }
 
 const Root: React.FC<IProps> = ({ children }) => {
-    // const logged: boolean = useSelector(state => state.user.logged);
-    const logged = false;
+    const logged: boolean = useSelector((state: any) => state.user.logged);
     const dispatch = useDispatch();
 
     const handleSubmit = (formValues: ILoginValues) => {
         dispatch(login(formValues));
     };
 
-    const Footer = () => {
+    const Footer: React.FC = () => {
         return (
             <div className="c-Login-Footer">
                 © 2020
@@ -36,16 +35,14 @@ const Root: React.FC<IProps> = ({ children }) => {
                     Nelev
                 </a>
                 , made with
-                <Favorite
-                    style={{ marginLeft: 5, marginRight: 5 }}
-                />
+                <Favorite fontSize="small" />
                 in Berlin
             </div>
         );
     };
 
     const Title: React.FC = () => {
-        return <div className="c-Login-Title">Hooks</div>;
+        return <div className="c-Login-Title">HeyJobs!</div>;
     };
 
     return logged === false ? (
