@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const Jobs = () => {
+const Jobs: React.FC = () => {
     const classes = useStyles()
     const dispatch = useDispatch();
-    const fetchingJobs: boolean = useSelector((state: any) => state.jobs.isFetchingJobs);
+    const isFetchingJobs: boolean = useSelector((state: any) => state.jobs.isFetchingJobs);
     const jobs: Array<any> = useSelector((state: any) => state.jobs.jobs);
     const user: string = useSelector((state: any) => state.user.user);
 
@@ -35,7 +35,7 @@ const Jobs = () => {
             <div className={classes.root}>
                 <Grid container spacing={2}>
                     <Grid container item xs={12} spacing={3}>
-                        {fetchingJobs ? dummyJobs.map((i: number) => {
+                        {isFetchingJobs ? dummyJobs.map((i: number) => {
                             return <JobCard loading={true} key={i} />
                         }) : jobs.map((job: any, index: number) => {
                             return <Grid key={index} item><JobCard loading={false} job={job} key={index} /></Grid>
