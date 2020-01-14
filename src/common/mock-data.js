@@ -10,7 +10,7 @@ const generateJobs = () => {
   for (let i = 0; i < index; i++) {
     items.push({
       id: i,
-      title: "title" + i,
+      title: "Job Title" + i,
       description: faker.lorem.sentence(),
       employmentType: typeList[Math.floor(Math.random() * typeList.length)]
     });

@@ -31,7 +31,7 @@ const Header: React.FC<IProps> = ({ user }) => {
     return (
         <div className={classes.header}>
             <span className={classes.title}>
-                Hey {user}, <FormattedMessage id="app.title" />
+                Hey <b>{user}</b>, <FormattedMessage id="app.title" />
             </span>
         </div>
     );

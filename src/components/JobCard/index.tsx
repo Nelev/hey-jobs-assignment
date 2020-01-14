@@ -14,8 +14,8 @@ interface IProps {
 
 const useStyles = makeStyles({
     card: {
-        minWidth: 350,
-        minHeight: 200,
+        width: 350,
+        height: 200,
     },
     title: {
         fontSize: 14,
@@ -32,7 +32,7 @@ const JobCard: React.FC<IProps> = ({ loading, job }) => {
         <Card className={classes.card} variant="outlined">
             <CardContent>
                 <>
-                    <Skeleton height={40} />
+                    <Skeleton variant="circle" width={40} height={40} />
                     <Skeleton height={40} />
                     <Skeleton height={40} />
                     <Skeleton height={40} />
@@ -46,10 +46,10 @@ const JobCard: React.FC<IProps> = ({ loading, job }) => {
                         {makeAvatar()}
                     </Avatar>
                 }
-                title={job.title}
+                title={<b>{job.title}</b>}
             />
             <CardContent>
-
+                {job.description}
             </CardContent>
             <CardActions>
                 <Button size="small" variant="contained"
