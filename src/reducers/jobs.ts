@@ -5,7 +5,7 @@ import { FETCH_JOBS_ERROR } from "../actions/jobs";
 const defaultState = {
   isFetchingJobs: false,
   errorFetchingJobs: null,
-  jobs: null
+  jobs: []
 };
 
 export default (state = defaultState, action: any) => {
