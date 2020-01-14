@@ -4,16 +4,14 @@
   color: white;
   width: 100%;
   position: sticky;
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -webkit-animation: fadein 2s;
   animation: fadein 2s;
+  text-align: center;
 }
 
 .c-HeaderTitle {
   color: white;
-  font-size: 250%;
-  padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 150%;
   user-select: none;
 }
 

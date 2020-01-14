@@ -1,5 +1,5 @@
 import { flattenMessages } from "./utils";
 
-const messages = { app: { title: "Find your job!" } };
+const messages = { app: { title: "find your perfect job!" } };
 
 export default flattenMessages(messages);

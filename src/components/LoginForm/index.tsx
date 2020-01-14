@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import Button from "@material-ui/core/Button"
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 import InputField from "../../components/fields/InputField/index";
 
@@ -12,7 +13,15 @@ interface IProps {
     handleSubmit: (values: any) => void;
 }
 
+const useStyles = makeStyles({
+    button: {
+        marginTop: 15,
+    }
+});
+
 const LoginForm: React.FC<IProps> = ({ pristine, submitting, handleSubmit }) => {
+    const classes = useStyles();
+
     return (
         <div className="c-Login-Form">
             <form onSubmit={handleSubmit}>
@@ -31,7 +40,7 @@ const LoginForm: React.FC<IProps> = ({ pristine, submitting, handleSubmit }) => 
                     <Button
                         variant="contained"
                         color="primary"
-                        className="c-loginButton"
+                        className={classes.button}
                         type="submit"
                         disabled={pristine || submitting}
                     >

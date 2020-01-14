@@ -3,12 +3,16 @@ import { FormattedMessage } from "react-intl";
 
 import "./style.css";
 
-const Header = () => {
+interface IProps {
+    user: string;
+}
+
+const Header: React.FC<IProps> = ({ user }) => {
 
     return (
         <div className="c-Header">
             <span className="c-HeaderTitle">
-                <FormattedMessage id="app.title" />
+                Hey {user}, <FormattedMessage id="app.title" />
             </span>
         </div>
     );
