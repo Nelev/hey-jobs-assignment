@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const InputField: React.FC<IProps> = ({ input }) => {
-    return <Button {...input} variant="contained" color="primary" />;
+    return <Button {...input} color="primary" />;
 };
 
 export default InputField;

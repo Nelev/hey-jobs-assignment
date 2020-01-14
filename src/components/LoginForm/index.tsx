@@ -29,6 +29,8 @@ const LoginForm: React.FC<IProps> = ({ pristine, submitting, handleSubmit }) => 
                 </div>
                 <div>
                     <Button
+                        variant="contained"
+                        color="primary"
                         className="c-loginButton"
                         type="submit"
                         disabled={pristine || submitting}

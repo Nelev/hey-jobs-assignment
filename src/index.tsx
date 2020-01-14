@@ -5,7 +5,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import Root from "./views/Root/index";
+import Login from "./views/Login/index";
+import Jobs from "./views/Jobs/index";
 import { theme } from "./theme"
 
 import messagesEn from "./messages/en";
@@ -22,11 +23,13 @@ const App = (
     <ThemeProvider theme={theme}>
         <IntlProvider locale={language} messages={messages[language]}>
             <Provider store={store}>
-                <BrowserRouter>
-                    <Switch>
-                        <Route exact path="/" component={Root} />
-                    </Switch>
-                </BrowserRouter>
+                <Login>
+                    <BrowserRouter>
+                        <Switch>
+                            <Route exact path="/" component={Jobs} />
+                        </Switch>
+                    </BrowserRouter>
+                </Login>
             </Provider>
         </IntlProvider>
     </ThemeProvider>
