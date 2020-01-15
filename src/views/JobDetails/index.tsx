@@ -19,14 +19,16 @@ const JobDetails: React.FC = () => {
     const query = useQuery();
     const classes = useStyles();
 
+    //get the jobId from the url
+    const jobId = query.get("jobId")
+
     const job: IJob | null = useSelector(
         (state: any) => state.jobs.job
     );
 
-    const jobId = query.get("jobId")
-
     React.useEffect(() => {
-        !job && jobId && dispatch(fetchJob(jobId));
+        // is we had a page reload, fetch the correct job
+        (!job && jobId) && dispatch(fetchJob(jobId));
     }, [dispatch, job, jobId]);
 
     return (

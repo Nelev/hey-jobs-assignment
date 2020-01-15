@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Grid, makeStyles, createStyles, Theme } from "@material-ui/core";
 
-import Header from "../../components/Header/index";
 import JobCard from "../../components/JobCard"
 import { fetchJobs } from "../../actions/jobs"
 import { IJob } from "../../model/IJob"
@@ -25,7 +24,6 @@ const Jobs: React.FC = () => {
     // selectors for redux store
     const isFetchingJobs: boolean = useSelector((state: any) => state.jobs.isFetchingJobs);
     const jobs: Array<IJob> = useSelector((state: any) => state.jobs.jobs);
-    const user: string = useSelector((state: any) => state.user.user);
 
     // fetch jobs
     useEffect(() => {
@@ -34,7 +32,6 @@ const Jobs: React.FC = () => {
 
     return (
         <>
-            <Header user={user} />
             <div className={classes.root}>
                 <Grid container spacing={2}>
                     <Grid container item xs={12} spacing={3}>

@@ -17,7 +17,7 @@ interface ILoginValues {
 
 const Root: React.FC<IProps> = ({ children }) => {
 
-    const logged: boolean = useSelector((state: any) => state.user.logged);
+    const user: boolean = useSelector((state: any) => state.user.user);
     const dispatch = useDispatch();
 
     const handleSubmit = (formValues: ILoginValues) => {
@@ -46,7 +46,7 @@ const Root: React.FC<IProps> = ({ children }) => {
         return <div className="c-Login-Title">HeyJobs!</div>;
     };
 
-    return logged === false ? (
+    return !user ? (
         <div className="v-Login">
             <Title />
             <LoginForm onSubmit={handleSubmit} />

@@ -2,12 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider } from "react-intl";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import Login from "./views/Login/index";
-import Jobs from "./views/Jobs/index";
-import JobDetails from "./views/JobDetails/index";
+import Root from "./views/Root/index";
 import { theme } from "./theme"
 
 import messagesEn from "./messages/en";
@@ -25,12 +23,7 @@ const App = (
         <IntlProvider locale={language} messages={messages[language]}>
             <Provider store={store}>
                 <Login>
-                    <BrowserRouter>
-                        <Switch>
-                            <Route exact path="/" component={Jobs} />
-                            <Route exact path="/:id" component={JobDetails} />
-                        </Switch>
-                    </BrowserRouter>
+                    <Root />
                 </Login>
             </Provider>
         </IntlProvider>
