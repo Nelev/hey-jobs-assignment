@@ -62,7 +62,7 @@ export const generateJob = id => {
     id: id,
     title: "Job Title" + id,
     description: faker.lorem.sentence(),
-    employmentType: typeList[Math.floor(Math.random() * typeList.length)],
+    workTime: typeList[Math.floor(Math.random() * typeList.length)],
     company: faker.company.companyName(),
     address: faker.address.streetAddress(),
     salary: faker.finance.amount()

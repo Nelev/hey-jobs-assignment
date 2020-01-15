@@ -4,5 +4,6 @@ export interface IJob {
   description: string;
   workTime: string;
   company?: string;
-  contract?: string;
+  address?: string;
+  salary?: number;
 }
