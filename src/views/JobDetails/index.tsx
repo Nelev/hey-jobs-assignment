@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FormattedMessage } from 'react-intl'
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
@@ -8,6 +9,16 @@ import { useQuery } from "../../hooks/hooks";
 import { IJob } from '../../model/IJob';
 import { dummyJobs } from "../../common/mock-data";
 import Skeleton from '@material-ui/lab/Skeleton';
+
+const jobTypeMap = {
+    fullTime: "full_time",
+    partTime: "part_time"
+}
+
+interface IJobType {
+    jobType: string
+}
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -38,6 +49,17 @@ const JobDetails: React.FC = () => {
         (!job && jobId) && dispatch(fetchJob(jobId));
     }, [dispatch, job, jobId]);
 
+    const JobType: React.FC<IJobType> = ({ jobType }) => {
+        switch (jobType) {
+            case jobTypeMap.fullTime:
+                return <FormattedMessage id='jobDetails.fullTime' />;
+            case jobTypeMap.partTime:
+                return <FormattedMessage id='jobDetails.partTime' />;
+            default:
+                return null;
+        }
+    }
+
     const Title: React.FC = () => {
         return job && <h2>Details of {job.id} </h2>
     }
@@ -45,12 +67,12 @@ const JobDetails: React.FC = () => {
     const JobSheet: React.FC = () => {
         return job ? (<>
             <Title />
-            <h3>Title: </h3>{job.title}
-            <h3>Descritpion: </h3><p>{job.description}</p>
-            <h3>Employment type: </h3><p>{job.workTime}</p>
-            <h3>Company: </h3><p>{job.company}</p>
-            <h3>Location: </h3><p>{job.address}</p>
-            <h3>Salary: </h3><p>{job.salary}</p>
+            <h3><FormattedMessage id='jobDetails.title' /></h3>{job.title}
+            <h3><FormattedMessage id='jobDetails.description' /></h3><p>{job.description}</p>
+            <h3><FormattedMessage id='jobDetails.type' /> </h3><p><JobType jobType={job.workTime} /></p>
+            <h3><FormattedMessage id='jobDetails.company' /></h3><p>{job.company}</p>
+            <h3><FormattedMessage id='jobDetails.location' /></h3><p>{job.address}</p>
+            <h3><FormattedMessage id='jobDetails.salary' /></h3><p>{job.salary}</p>
         </>) : null
     }
 
