@@ -1,5 +1,4 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
 import { makeStyles } from "@material-ui/core/styles";
 
 interface IProps {
@@ -29,7 +28,7 @@ const Header: React.FC<IProps> = ({ user }) => {
     return (
         <div className={classes.header}>
             <span className={classes.title}>
-                Hey <b>{user}</b>
+                Hey <b>{user}</b>, let´s find the job of your dreams!
             </span>
         </div>
     );

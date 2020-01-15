@@ -4,8 +4,24 @@ import { configure, mount } from "enzyme";
 import Header from "../components/Header";
 
 configure({ adapter: new Adapter() });
-test("Header without name", () => {
-  // Render a checkbox with label in the document
+
+test("html elements inside the HEader", () => {
+  // Render a header
+  const header = mount(<Header user="user" />);
+  expect(header.find("span").exists()).toBeTruthy();
+  expect(header.find("div").exists()).toBeTruthy();
+  expect(header.find("div")).toHaveLength(1);
+  expect(header.find("span")).toHaveLength(1);
+});
+
+test("Header with a name", () => {
+  // Render a headerwith a name prop
   const header = mount(<Header user="name" />);
-  expect(header.find(<div />)).toHaveAttribute("");
+  expect(header.props().user).toEqual("name");
+});
+
+test("Header with no name", () => {
+  // Render a headerwith no name prop
+  const header = mount(<Header />);
+  expect(header.props().user).toEqual(undefined);
 });
