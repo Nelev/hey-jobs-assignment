@@ -46,7 +46,7 @@ const JobCard: React.FC<IProps> = ({ loading, job }) => {
 
     const handleSelectProject = (job: IJob) => {
         dispatch(fetchJob(job.id))
-        history.push(`/${job.id}`)
+        history.push(`/jobs?jobId=${job.id}`)
 
     }
 
